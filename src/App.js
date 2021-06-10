@@ -17,10 +17,14 @@ const App = () => {
 		const url = "https://restcountries.eu/rest/v2/all";
 		console.log("effect runs");
 
-		const localCountry = localStorage.getItem("selectedCountry");
+		updateSelectedFromLocal();
+
 		// const JSLocalCountry = JSON.parse(localStorage.getItem("selectedCountry"));
-		localCountry &&
-			setSelectedCountry(JSON.parse(localStorage.getItem("selectedCountry")));
+
+		// const localCountry = localStorage.getItem("selectedCountry");
+
+		// localCountry &&
+		// 	setSelectedCountry(JSON.parse(localStorage.getItem("selectedCountry")));
 
 		axios
 			.get(url)
@@ -63,6 +67,13 @@ const App = () => {
 	const saveCountryLocal = (country) => {
 		getLocalCountry();
 		localStorage.setItem("selectedCountry", JSON.stringify(country));
+	};
+
+	const updateSelectedFromLocal = () => {
+		const localCountry = localStorage.getItem("selectedCountry");
+
+		localCountry &&
+			setSelectedCountry(JSON.parse(localStorage.getItem("selectedCountry")));
 	};
 
 	return (

@@ -3,6 +3,7 @@ import {
 	CountryFlag,
 } from "../../styles/CountryCard.styled";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { formatNumber } from "../../utils/numberUtils";
 
 const CountryCard = ({
 	name,
@@ -19,9 +20,9 @@ const CountryCard = ({
 					<CountryFlag flagSrc={flag} />
 				</div>
 				<div className="countryBody">
-					<h4>{name}</h4>
+					<h3 className="margin">{name}</h3>
 					<p>
-						<span className="bold">Population:</span> {population}
+						<span className="bold">Population:</span> {formatNumber(population)}
 					</p>
 					<p>
 						<span className="bold">Region:</span> {region}

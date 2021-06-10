@@ -12,6 +12,10 @@ export const StyledCountryCard = styled.div`
 		padding: 0 2.5em 2em;
 		line-height: 0.8;
 
+		.margin {
+			margin-bottom: 1.5em;
+		}
+
 		.bold {
 			font-weight: 600;
 		}

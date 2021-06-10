@@ -47,6 +47,7 @@ export const CountryDetails = styled.div`
 	.borderCountries {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 
 		.bold {
 			font-weight: 600;
@@ -56,14 +57,13 @@ export const CountryDetails = styled.div`
 			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 			padding: 0.25em 1em;
 			border-radius: 0.25em;
-			margin-left: 0.5em;
+			margin: 0 0.5em 0;
 		}
 	}
 `;
 
 export const DetailsWrapper = styled.div`
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 
 	.detailsColumn {
@@ -81,4 +81,6 @@ export const CountryFlag = styled.img.attrs((props) => ({
 	object-fit: cover;
 	width: 600px;
 	max-width: 100%;
+	height: 320px;
+	max-height: 100%;
 `;
