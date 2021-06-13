@@ -27,7 +27,7 @@ export const BackBtn = styled.button`
 export const StyledMainInfo = styled.div`
 	border: 1px solid blue;
 	display: flex;
-	height: 60vh;
+	height: 65vh;
 `;
 
 export const ImgWrapper = styled.div`
@@ -39,7 +39,7 @@ export const ImgWrapper = styled.div`
 export const CountryDetails = styled.div`
 	border: 1px solid pink;
 	flex: 1;
-	margin-left: 5em;
+	margin-left: 2.5em;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -78,9 +78,9 @@ export const DetailsWrapper = styled.div`
 export const CountryFlag = styled.img.attrs((props) => ({
 	src: props.flagSrc,
 }))`
-	object-fit: cover;
+	/* object-fit: cover; */
 	width: 600px;
 	max-width: 100%;
-	height: 320px;
+	/* height: 320px; */
 	max-height: 100%;
 `;

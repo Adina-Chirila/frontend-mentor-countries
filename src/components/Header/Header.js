@@ -3,7 +3,7 @@ import { DarkModeBtn, StyledHeader } from "../../styles/Header.styled";
 import { Container } from "../../styles/Global.styled";
 import { useState, useEffect } from "react";
 
-const Header = () => {
+const Header = ({ toggleTheme }) => {
 	const [mode, setMode] = useState(false);
 
 	const handleClick = () => {
@@ -15,10 +15,12 @@ const Header = () => {
 			<Container>
 				<h1>Where in the world?</h1>
 				<DarkModeBtn
-					onClick={handleClick}
-					style={
-						mode ? { backgroundColor: "white" } : { backgroundColor: "pink" }
-					}
+					className="themeBtn"
+					onClick={toggleTheme}
+					// onClick={handleClick}
+					// style={
+					// 	mode ? { backgroundColor: "white" } : { backgroundColor: "pink" }
+					// }
 				>
 					<FaRegMoon />
 					{/* <FaMoon /> */}

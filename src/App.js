@@ -7,11 +7,15 @@ import CountryCard from "./components/CountryCard/CountryCard";
 import { CountryCards } from "./styles/Global.styled";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CountryInfo from "./components/CountryInfo/CountryInfo";
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./styles/Theme";
+import { GlobalStyles } from "./styles/Global";
 
 const App = () => {
 	const [countries, setCountries] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedCountry, setSelectedCountry] = useState([]);
+	const [theme, setTheme] = useState("light");
 
 	useEffect(() => {
 		const url = "https://restcountries.eu/rest/v2/all";
@@ -76,38 +80,51 @@ const App = () => {
 			setSelectedCountry(JSON.parse(localStorage.getItem("selectedCountry")));
 	};
 
+	const toggleTheme = () => {
+		// if the theme is not light, then set it to dark
+		if (theme === "light") {
+			setTheme("dark");
+			// otherwise, it should be light
+		} else {
+			setTheme("light");
+		}
+	};
+
 	return (
 		<Router>
-			<Header />
-			<Switch>
-				<Route exact path="/">
-					<SearchAndFilter
-						searchTerm={searchTerm}
-						handleChange={handleChange}
-						handleSubmit={handleSubmit}
-					/>
+			<ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+				<GlobalStyles />
+				<Header toggleTheme={toggleTheme} />
+				<Switch>
+					<Route exact path="/">
+						<SearchAndFilter
+							searchTerm={searchTerm}
+							handleChange={handleChange}
+							handleSubmit={handleSubmit}
+						/>
 
-					<CountryCards>
-						{countries.length > 0 &&
-							countries
-								.filter((country) => {
-									return country.name
-										.toLowerCase()
-										.includes(searchTerm.toLowerCase());
-								})
-								.map((country) => (
-									<CountryCard
-										key={country.alpha2Code}
-										{...country}
-										handleClick={() => handleClick(country.alpha2Code)}
-									/>
-								))}
-					</CountryCards>
-				</Route>
-				<Route path="/info">
-					<CountryInfo selectedCountry={selectedCountry} />
-				</Route>
-			</Switch>
+						<CountryCards>
+							{countries.length > 0 &&
+								countries
+									.filter((country) => {
+										return country.name
+											.toLowerCase()
+											.includes(searchTerm.toLowerCase());
+									})
+									.map((country) => (
+										<CountryCard
+											key={country.alpha2Code}
+											{...country}
+											handleClick={() => handleClick(country.alpha2Code)}
+										/>
+									))}
+						</CountryCards>
+					</Route>
+					<Route path="/info">
+						<CountryInfo selectedCountry={selectedCountry} />
+					</Route>
+				</Switch>
+			</ThemeProvider>
 		</Router>
 	);
 };

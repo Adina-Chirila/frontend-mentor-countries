@@ -15,7 +15,7 @@ const CountryCard = ({
 }) => {
 	return (
 		<Link to="/info">
-			<StyledCountryCard onClick={handleClick}>
+			<StyledCountryCard onClick={handleClick} className="card">
 				<div>
 					<CountryFlag flagSrc={flag} />
 				</div>

@@ -9,6 +9,12 @@ body {
 	background-color: hsl(0, 0%, 98%);
 }
 
+button,
+input,
+select {
+	font-family: inherit;
+}
+
 a {
 	text-decoration: none;
 	color: black;

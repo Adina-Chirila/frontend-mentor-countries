@@ -29,7 +29,7 @@ const CountryInfo = ({ selectedCountry }) => {
 	return (
 		<StyledCountryInfo>
 			<Link to="/">
-				<BackBtn>
+				<BackBtn className="backBtn">
 					<FaArrowLeft />
 					<span className="styledSpan">Back</span>
 				</BackBtn>
