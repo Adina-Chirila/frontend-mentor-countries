@@ -26,7 +26,7 @@ const SearchAndFilter = ({ searchTerm, handleChange }) => {
 					</form>
 				</InputWrapper>
 
-				<Form>
+				{/* <Form>
 					<Select name="select" defaultValue="filter" className="input">
 						<option value="filter" hidden>
 							Filter by region
@@ -38,7 +38,7 @@ const SearchAndFilter = ({ searchTerm, handleChange }) => {
 						<option value="europe">Europe</option>
 						<option value="oceania">Oceania</option>
 					</Select>
-				</Form>
+				</Form> */}
 			</SearchFilter>
 		</Container>
 	);

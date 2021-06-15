@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SearchFilter = styled.div`
 	width: 100%;
 	display: flex;
-	border: 1px solid red;
+
 	justify-content: space-between;
 	margin: 4rem 0;
 
@@ -13,7 +13,8 @@ export const SearchFilter = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-	width: 40%;
+	/* width: 40%; */
+	width: 100%;
 	height: 50px;
 	position: relative;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12);

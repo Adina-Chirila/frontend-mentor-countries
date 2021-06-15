@@ -3,12 +3,10 @@ import styled from "styled-components";
 export const StyledCountryInfo = styled.div`
 	width: 80%;
 	margin: 0 auto;
-	border: 1px solid red;
 `;
 
 export const BackBtn = styled.button`
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-	background-color: white;
 	border-radius: 0.25em;
 	padding: 0.6em 1.75em;
 	border: none;
@@ -21,13 +19,25 @@ export const BackBtn = styled.button`
 	.styledSpan {
 		margin-left: 0.5em;
 		font-size: 1rem;
+
+		@media (max-width: 750px) {
+			font-size: 0.75rem;
+		}
+	}
+
+	@media (max-width: 750px) {
+		font-size: 0.75rem;
 	}
 `;
 
 export const StyledMainInfo = styled.div`
-	border: 1px solid blue;
 	display: flex;
-	height: 65vh;
+	min-height: 65vh;
+
+	@media (max-width: 1000px) {
+		flex-direction: column;
+		align-items: center;
+	}
 `;
 
 export const ImgWrapper = styled.div`
@@ -37,7 +47,6 @@ export const ImgWrapper = styled.div`
 `;
 
 export const CountryDetails = styled.div`
-	border: 1px solid pink;
 	flex: 1;
 	margin-left: 2.5em;
 	display: flex;
@@ -45,6 +54,7 @@ export const CountryDetails = styled.div`
 	flex-direction: column;
 
 	.borderCountries {
+		font-size: 0.8rem;
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
@@ -57,8 +67,17 @@ export const CountryDetails = styled.div`
 			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 			padding: 0.25em 1em;
 			border-radius: 0.25em;
-			margin: 0 0.5em 0;
+			margin: 0 0.5em 0 0;
+
+			&:nth-child(2) {
+				margin-left: 0.5em;
+			}
 		}
+	}
+
+	@media (max-width: 1000px) {
+		margin-left: 0;
+		padding-bottom: 1em;
 	}
 `;
 
@@ -67,11 +86,16 @@ export const DetailsWrapper = styled.div`
 	justify-content: space-between;
 
 	.detailsColumn {
-		line-height: 0.7;
+		font-size: 0.8rem;
+		flex: 1;
 	}
 
 	.bold {
 		font-weight: 600;
+	}
+
+	@media (max-width: 750px) {
+		flex-direction: column;
 	}
 `;
 

@@ -8,6 +8,10 @@ export const StyledHeader = styled.header`
 	/* position: fixed;
 	width: 100%;
 	z-index: 999; */
+
+	@media (max-width: 620px) {
+		font-size: 9px;
+	}
 `;
 
 export const DarkModeBtn = styled.button`
@@ -27,5 +31,9 @@ export const DarkModeBtn = styled.button`
 
 	.btnSpan {
 		margin-left: 0.5em;
+	}
+
+	@media (max-width: 620px) {
+		font-size: 0.65rem;
 	}
 `;

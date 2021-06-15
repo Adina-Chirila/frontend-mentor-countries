@@ -7,34 +7,17 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
-    background: ${({ theme }) => theme.body};
+  body,header, .card,.input,.backBtn,.themeBtn {
     color: ${({ theme }) => theme.text};
-    transition: all 0.25s linear;
+    transition: background-color 0.25s linear;
   }
 
-  header{
-    background: ${({ theme }) => theme.header};
+  body{
+    background-color: ${({ theme }) => theme.body};
   }
 
-.card{
-    background: ${({ theme }) => theme.card};
-    color: ${({ theme }) => theme.text}; 
-    
-}
-
-.input{
-    background: ${({ theme }) => theme.input};
-    color: ${({ theme }) => theme.text}; 
-}
-
-.themeBtn{
-    color: ${({ theme }) => theme.text}; 
-}
-
-.backBtn{
-    background: ${({ theme }) => theme.input};
-    color: ${({ theme }) => theme.text}; 
-}
+  header, .card,.input,.backBtn{
+    background-color: ${({ theme }) => theme.elements};
+  }
 
   `;
