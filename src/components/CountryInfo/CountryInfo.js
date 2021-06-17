@@ -26,6 +26,10 @@ const CountryInfo = ({ selectedCountry }) => {
 		languages,
 	} = selectedCountry[0] || {};
 
+	const filteredCurrencies = currencies.filter(
+		(currency) => currency.name !== null
+	);
+
 	return (
 		<StyledCountryInfo>
 			<Link to="/">
@@ -74,9 +78,26 @@ const CountryInfo = ({ selectedCountry }) => {
 								<p>
 									<span className="bold">Currencies: </span>
 									{/* {currencies.map((currency) => currency.name)} */}
-									{currencies.map((currency, index) => {
+									{/* {currencies.map((currency, index) => {
 										return currencies.length > 1 &&
 											index < currencies.length - 1
+											? `${currency.name}, `
+											: currency.name;
+									})} */}
+									{/* {currencies
+										.filter((currency) => {
+											return currency.name !== null;
+										})
+										.map((currency, index) => {
+											return currencies.length > 1 &&
+												index < currencies.length - 1
+												? `${currency.name}, `
+												: currency.name;
+										})} */}
+
+									{filteredCurrencies.map((currency, index) => {
+										return filteredCurrencies.length > 1 &&
+											index < filteredCurrencies.length - 1
 											? `${currency.name}, `
 											: currency.name;
 									})}

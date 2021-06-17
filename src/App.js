@@ -23,13 +23,6 @@ const App = () => {
 
 		updateSelectedFromLocal();
 
-		// const JSLocalCountry = JSON.parse(localStorage.getItem("selectedCountry"));
-
-		// const localCountry = localStorage.getItem("selectedCountry");
-
-		// localCountry &&
-		// 	setSelectedCountry(JSON.parse(localStorage.getItem("selectedCountry")));
-
 		axios
 			.get(url)
 			.then((resp) => {
@@ -68,8 +61,14 @@ const App = () => {
 			: [];
 	};
 
+	// const getLocalCountry = (item) => {
+	// 	return localStorage.getItem(item)
+	// 		? JSON.parse(localStorage.getItem(item))
+	// 		: [];
+	// };
+
 	const saveCountryLocal = (country) => {
-		getLocalCountry();
+		getLocalCountry("selectedCountry");
 		localStorage.setItem("selectedCountry", JSON.stringify(country));
 	};
 
@@ -84,7 +83,6 @@ const App = () => {
 		// if the theme is not light, then set it to dark
 		if (theme === "light") {
 			setTheme("dark");
-			// otherwise, it should be light
 		} else {
 			setTheme("light");
 		}
