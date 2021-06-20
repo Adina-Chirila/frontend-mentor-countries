@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import SearchAndFilter from "./components/SearchAndFilter/SearchAndFilter";
 import CountryCard from "./components/CountryCard/CountryCard";
 import { CountryCards } from "./styles/Global.styled";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CountryInfo from "./components/CountryInfo/CountryInfo";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/Theme";
@@ -19,23 +19,15 @@ const App = () => {
 
 	useEffect(() => {
 		const url = "https://restcountries.eu/rest/v2/all";
-		console.log("effect runs");
-
 		updateSelectedFromLocal();
-
 		axios
 			.get(url)
 			.then((resp) => {
 				setCountries(resp.data);
-				console.log("axios runs");
-				// console.log(countries);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		return () => {
-			console.log("clean");
-		};
 	}, []);
 
 	const handleChange = (e) => {
@@ -55,36 +47,40 @@ const App = () => {
 		saveCountryLocal(selectedCountry);
 	};
 
-	const getLocalCountry = () => {
-		return localStorage.getItem("selectedCountry")
-			? JSON.parse(localStorage.getItem("selectedCountry"))
+	const getLocalItem = (item) => {
+		return localStorage.getItem(item)
+			? JSON.parse(localStorage.getItem(item))
 			: [];
 	};
 
-	// const getLocalCountry = (item) => {
-	// 	return localStorage.getItem(item)
-	// 		? JSON.parse(localStorage.getItem(item))
-	// 		: [];
-	// };
-
 	const saveCountryLocal = (country) => {
-		getLocalCountry("selectedCountry");
+		getLocalItem("selectedCountry");
 		localStorage.setItem("selectedCountry", JSON.stringify(country));
+	};
+
+	const saveThemeLocal = (theme) => {
+		getLocalItem("selectedTheme");
+		localStorage.setItem("selectedTheme", JSON.stringify(theme));
 	};
 
 	const updateSelectedFromLocal = () => {
 		const localCountry = localStorage.getItem("selectedCountry");
+		const localTheme = localStorage.getItem("selectedTheme");
 
 		localCountry &&
 			setSelectedCountry(JSON.parse(localStorage.getItem("selectedCountry")));
+
+		localTheme && setTheme(JSON.parse(localStorage.getItem("selectedTheme")));
 	};
 
 	const toggleTheme = () => {
-		// if the theme is not light, then set it to dark
 		if (theme === "light") {
 			setTheme("dark");
+			saveThemeLocal("dark");
 		} else {
 			setTheme("light");
+			setTheme("light");
+			saveThemeLocal("light");
 		}
 	};
 

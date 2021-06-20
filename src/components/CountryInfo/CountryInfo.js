@@ -8,7 +8,7 @@ import {
 	BackBtn,
 } from "../../styles/CountryInfo.styled";
 import { FaArrowLeft } from "react-icons/fa";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { formatNumber } from "../../utils/numberUtils";
 
 const CountryInfo = ({ selectedCountry }) => {
@@ -26,9 +26,13 @@ const CountryInfo = ({ selectedCountry }) => {
 		languages,
 	} = selectedCountry[0] || {};
 
-	const filteredCurrencies = currencies.filter(
-		(currency) => currency.name !== null
-	);
+	const handleInvalidCurrencies = () => {
+		if (currencies) {
+			return currencies.filter((currency) => currency.name !== null);
+		}
+	};
+
+	const filteredCurrencies = handleInvalidCurrencies();
 
 	return (
 		<StyledCountryInfo>
@@ -67,7 +71,6 @@ const CountryInfo = ({ selectedCountry }) => {
 							<div className="detailsColumn">
 								<p>
 									<span className="bold">Top level domain: </span>
-									{/* {topLevelDomain.map((domain) => domain)} */}
 									{topLevelDomain.map((domain, index) => {
 										return topLevelDomain.length > 1 &&
 											index < topLevelDomain.length - 1
@@ -77,24 +80,6 @@ const CountryInfo = ({ selectedCountry }) => {
 								</p>
 								<p>
 									<span className="bold">Currencies: </span>
-									{/* {currencies.map((currency) => currency.name)} */}
-									{/* {currencies.map((currency, index) => {
-										return currencies.length > 1 &&
-											index < currencies.length - 1
-											? `${currency.name}, `
-											: currency.name;
-									})} */}
-									{/* {currencies
-										.filter((currency) => {
-											return currency.name !== null;
-										})
-										.map((currency, index) => {
-											return currencies.length > 1 &&
-												index < currencies.length - 1
-												? `${currency.name}, `
-												: currency.name;
-										})} */}
-
 									{filteredCurrencies.map((currency, index) => {
 										return filteredCurrencies.length > 1 &&
 											index < filteredCurrencies.length - 1
@@ -104,7 +89,6 @@ const CountryInfo = ({ selectedCountry }) => {
 								</p>
 								<p>
 									<span className="bold">Languages: </span>
-									{/* {languages.map((language) => language.name)} */}
 									{languages.map((language, index) => {
 										return languages.length > 1 && index < languages.length - 1
 											? `${language.name}, `
@@ -126,14 +110,6 @@ const CountryInfo = ({ selectedCountry }) => {
 							) : (
 								<p className="border">No border countries</p>
 							)}
-
-							{/* {borders.map((border) => {
-								return (
-									<p className="border" key={border}>
-										{border}
-									</p>
-								);
-							})} */}
 						</div>
 					</CountryDetails>
 				)}

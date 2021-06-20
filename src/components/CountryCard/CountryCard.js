@@ -2,7 +2,7 @@ import {
 	StyledCountryCard,
 	CountryFlag,
 } from "../../styles/CountryCard.styled";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { formatNumber } from "../../utils/numberUtils";
 
 const CountryCard = ({

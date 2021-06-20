@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Container } from "../../styles/Global.styled";
 import {

@@ -4,7 +4,6 @@ export const Container = styled.div`
 	max-width: 1200px;
 	width: 80%;
 	margin: 0 auto;
-	/* position: relative; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -26,8 +25,4 @@ export const CountryCards = styled.div`
 		grid-template-columns: repeat(1, auto);
 		justify-content: center;
 	}
-
-	/* grid-template-columns: repeat(3, 1fr);
-	grid-auto-rows: auto; */
-	/* grid-gap: 1rem; */
 `;

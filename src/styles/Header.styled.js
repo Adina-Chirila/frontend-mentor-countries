@@ -4,10 +4,6 @@ export const StyledHeader = styled.header`
 	padding-top: 10px;
 	padding-bottom: 10px;
 	box-shadow: 0px 1px 24px -16px rgba(0, 0, 0, 0.66);
-	/* background-color: white; */
-	/* position: fixed;
-	width: 100%;
-	z-index: 999; */
 
 	@media (max-width: 620px) {
 		font-size: 9px;

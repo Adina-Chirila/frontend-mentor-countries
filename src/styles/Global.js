@@ -9,7 +9,6 @@ export const GlobalStyles = createGlobalStyle`
 
   body,header, .card,.input,.backBtn,.themeBtn {
     color: ${({ theme }) => theme.text};
-    transition: background-color 0.25s linear;
   }
 
   body{

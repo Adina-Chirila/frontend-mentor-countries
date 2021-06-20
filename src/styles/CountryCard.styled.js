@@ -40,11 +40,9 @@ export const StyledCountryCard = styled.div`
 
 export const CountryFlag = styled.img.attrs((props) => ({
 	src: props.flagSrc,
-	// src: `${(props) => props.flagSrc}`,
 }))`
 	object-fit: cover;
 	height: 220px;
-	/* max-width: 100%; */
 	width: 100%;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 `;

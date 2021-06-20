@@ -79,6 +79,10 @@ export const CountryDetails = styled.div`
 		margin-left: 0;
 		padding-bottom: 1em;
 	}
+
+	@media (max-width: 750px) {
+		align-self: flex-start;
+	}
 `;
 
 export const DetailsWrapper = styled.div`
@@ -102,9 +106,7 @@ export const DetailsWrapper = styled.div`
 export const CountryFlag = styled.img.attrs((props) => ({
 	src: props.flagSrc,
 }))`
-	/* object-fit: cover; */
 	width: 600px;
 	max-width: 100%;
-	/* height: 320px; */
 	max-height: 100%;
 `;

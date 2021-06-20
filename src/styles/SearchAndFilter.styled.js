@@ -3,17 +3,11 @@ import styled from "styled-components";
 export const SearchFilter = styled.div`
 	width: 100%;
 	display: flex;
-
 	justify-content: space-between;
 	margin: 4rem 0;
-
-	/* margin: 0 auto; */
-	/* margin-top: 60px;
-	margin-bottom: 60px; */
 `;
 
 export const InputWrapper = styled.div`
-	/* width: 40%; */
 	width: 100%;
 	height: 50px;
 	position: relative;
