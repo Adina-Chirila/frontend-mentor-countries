@@ -1,18 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
 body {
-	font-family: "Nunito Sans", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 button,
 input,
 select {
-	font-family: inherit;
+    font-family: inherit;
 }
 
 a {
-	text-decoration: none;
-	color: black;
+    text-decoration: none;
+    color: black;
 }
 
 a:focus,
@@ -20,6 +20,6 @@ a:hover,
 a:visited,
 a:link,
 a:active {
-	text-decoration: none;
-	color: black;
+    text-decoration: none;
+    color: black;
 }
